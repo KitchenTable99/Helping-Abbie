@@ -8,7 +8,7 @@ import sys
 import matplotlib.pyplot as plt
 
 def validate_graph_input(f):
-    '''Make sure that the inputs are in valid form
+    '''Decorator: makes sure that the inputs are in valid form
     
     Args:
         f (func): decorated function
