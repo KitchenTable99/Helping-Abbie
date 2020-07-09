@@ -35,10 +35,10 @@ def validate_graph_input(f):
                 for coord_pair in arg:            # check that each item in the list is also a list of length two
                     if not isinstance(coord_pair, list) or len(coord_pair) != 2:
                         good_form = False
-        if not good_form:
-            raise TypeError('The coordinate pairs are not in the correct form of [x1, y1]')     # alert user
-        else:
-            return f(*args, **kwargs)
+                if not good_form:
+                    raise TypeError('The coordinate pairs are not in the correct form of [x1, y1]')     # alert user
+                else:
+                    return f(*args, **kwargs)
 
     return wrapper
 
