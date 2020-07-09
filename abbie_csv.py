@@ -7,6 +7,23 @@ import os
 import sys
 import matplotlib.pyplot as plt
 
+def validate_graph_input(f):
+
+    def wrapper(*args, **kwargs):
+        for arg in args:
+            if not isinstance(arg, list):
+                raise TypeError('Each argument passed must be a list')
+            else:
+                good_form = True
+                for coord_pair in arg:
+                    if not isinstance(coord_pair, list) or len(coord_pair) != 2:
+                        good_form = False
+        if not good_form:
+            raise TypeError('The coordinate pairs are not in the correct form of [x1, y1]')
+        else: return f(*args, **kwargs)
+
+    return wrapper
+
 def csvImport(csv_name, include_headers=False):
     '''Imports two-column csv data. The data is assumed to represent (x, y) coordinate pairs where the first column stores the x-values and the second column, the y-values. The csv must be in the working directory.
     
@@ -35,6 +52,7 @@ def csvImport(csv_name, include_headers=False):
 
     return processed_csv_contents
 
+@validate_graph_input
 def graphData(*args, parameters={}):
     '''Visualizes data
     
