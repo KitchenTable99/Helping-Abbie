@@ -8,19 +8,37 @@ import sys
 import matplotlib.pyplot as plt
 
 def validate_graph_input(f):
-
+    '''Make sure that the inputs are in valid form
+    
+    Args:
+        f (func): decorated function
+    
+    Returns:
+        unbound method: same as f in args
+    '''
     def wrapper(*args, **kwargs):
+        '''Validates inputs
+        
+        Args:
+            *args: all args of f
+            **kwargs: all kwargs of f
+        
+        Raises:
+            TypeError: If the form of any input is not correct, alerts user to this problem
+        '''
+        # check each dataset
         for arg in args:
-            if not isinstance(arg, list):
-                raise TypeError('Each argument passed must be a list')
+            if not isinstance(arg, list):         # make sure it's a list
+                raise TypeError('Each argument passed must be a list')                          # alert user
             else:
                 good_form = True
-                for coord_pair in arg:
+                for coord_pair in arg:            # check that each item in the list is also a list of length two
                     if not isinstance(coord_pair, list) or len(coord_pair) != 2:
                         good_form = False
         if not good_form:
-            raise TypeError('The coordinate pairs are not in the correct form of [x1, y1]')
-        else: return f(*args, **kwargs)
+            raise TypeError('The coordinate pairs are not in the correct form of [x1, y1]')     # alert user
+        else:
+            return f(*args, **kwargs)
 
     return wrapper
 
