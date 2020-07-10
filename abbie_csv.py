@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-# Caleb Bitting created the framework to read and graph x,y data contained in a csv file
+# Caleb Bitting (Colby College Class of 2023) created the framework to read and graph x,y data contained in a csv file
 '''
 Example python data input and plotting code.
 '''
-import os
 import sys
 import matplotlib.pyplot as plt
 
