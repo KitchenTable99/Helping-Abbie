@@ -70,6 +70,12 @@ def csvImport(csv_name, include_headers=False):
 
     return processed_csv_contents
 
+
+def test(apple, orange):
+    print(apple)
+    print(orange)
+
+
 @validate_graph_input
 def graphData(*args, parameters={}):
     '''Visualizes data
