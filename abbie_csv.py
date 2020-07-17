@@ -48,7 +48,7 @@ def csvImport(csv_name, include_headers=False):
         include_headers (bool, optional): whether or not to include the header names in the returned list. Defaults to False.
     
     Returns:
-        2D list: The list will be in the form [[x(1), y(1)], [x(2), y(2)], ... [x(n-1), y(n-1)], [x(n), y(n)]] with a csv of n columns
+        list: The list will be in the form [[x(1), y(1)], [x(2), y(2)], ... [x(n-1), y(n-1)], [x(n), y(n)]] with a csv of n columns
     '''
     # csv_name into csv_path
     if '.csv' not in csv_name:
